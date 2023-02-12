@@ -14,7 +14,6 @@ const LawyersContainer = () => {
       p="1rem"
       m="0.8rem"
       mt="2rem"
-      bg="bg100"
       variant="centerFlex"
     >
       <Heading as="h1" fontWeight="semibold">

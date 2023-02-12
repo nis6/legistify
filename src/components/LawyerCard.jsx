@@ -13,10 +13,8 @@ const LawyerCard = () => {
     >
       <Flex align="center" justify="space-between" gap="2rem" w="100%" pb="0.5rem">
         <Box>
-          <Image src={svg.person} boxSize="100px" />
-          <Text textAlign="center" fontWeight="semibold">
-            Lawyer's Name
-          </Text>
+          <Image src={svg.lawyer} boxSize="200px" />
+          <Text fontWeight="semibold">Lawyer's Name</Text>
           <Text color="rust">Business Law</Text>
         </Box>
         <Flex direction="column" gap="0.5rem" align="end">
