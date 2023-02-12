@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: var(--night-black);
+  box-sizing: border-box;
+  overflow-x: hidden; /*we don't want to scroll left and right on our pages*/
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  display: none; /*To hide the native scroll bar*/
+}
+
+img {
+  width: 100%; /*This makes an image adjust its size to its container */
+}
