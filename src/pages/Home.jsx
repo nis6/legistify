@@ -25,8 +25,6 @@ const Home = () => {
           />
         );
       })}
-
-      <AptCard />
     </Box>
   );
 };

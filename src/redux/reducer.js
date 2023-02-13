@@ -7,10 +7,10 @@ let lawfirms = data.lawfirms;
 const AppointmentReducer = createReducer(lawfirms, (builder) => {
     builder
         .addCase(set_appointment, (lawfirms, action) => {
-            console.log('this is action from set_app: ', action)
-            // console.log('lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawfirmIndex]', lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawfirmIndex])
-            lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawfirmIndex].appointments.push(action.payload.new_appointment)
-            lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawfirmIndex].slot_counter--
+            let lawyer = lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex]
+            lawyer.appointments.push(action.payload.new_appointment)
+            lawyer.slot_counter = lawyer.slot_counter.filter(item => item !== action.payload.new_appointment.time)
+
             console.log('this is lawfirms after reducer: ', current(lawfirms))
 
         }

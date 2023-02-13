@@ -10,7 +10,13 @@
           "speciality": "Human Rights, International law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "70,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -19,7 +25,13 @@
           "speciality": "Marriage and Annulment",
           "about": "Known to have pursued a law degree from the Government Law College, Mumbai in 1950, Fali S Nariman stood first in the advocate's examination and has even been awarded the Kinlock Forbes Gold Medal and Prize for Roman Law & Jurisprudence.",
           "price": "97,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -28,7 +40,13 @@
           "speciality": "Criminal  Law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "76,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -37,7 +55,13 @@
           "speciality": "Business Law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "50,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -46,7 +70,13 @@
           "speciality": "Human Rights, International law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "90,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         }
       ]
@@ -61,7 +91,13 @@
           "speciality": "Human Rights, International law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "70,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -70,7 +106,13 @@
           "speciality": "Marriage and Annulment",
           "about": "Known to have pursued a law degree from the Government Law College, Mumbai in 1950, Fali S Nariman stood first in the advocate's examination and has even been awarded the Kinlock Forbes Gold Medal and Prize for Roman Law & Jurisprudence.",
           "price": "97,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -79,7 +121,13 @@
           "speciality": "Criminal  Law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "76,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -88,7 +136,13 @@
           "speciality": "Business Law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "50,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -97,7 +151,13 @@
           "speciality": "Human Rights, International law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "90,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         }
       ]
@@ -112,7 +172,13 @@
           "speciality": "Contract Law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "70,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -121,16 +187,28 @@
           "speciality": "Environment  Law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "86,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
-          "id": 303,
+          "id": "sk303",
           "name": "Sumit Khurana",
           "speciality": "Property Law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "50,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -139,7 +217,13 @@
           "speciality": "Family law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "90,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         }
       ]
@@ -154,7 +238,13 @@
           "speciality": "Administrative law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "88,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -163,7 +253,13 @@
           "speciality": "Marriage and Annulment",
           "about": "Known to have pursued a law degree from the Government Law College, Mumbai in 1950, Fali S Nariman stood first in the advocate's examination and has even been awarded the Kinlock Forbes Gold Medal and Prize for Roman Law & Jurisprudence.",
           "price": "97,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         },
         {
@@ -172,7 +268,13 @@
           "speciality": "Media Law",
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "90,000",
-          "slot_counter": 5,
+          "slot_counter": [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "1:00 PM - 2:00 PM",
+            "2:00 PM - 3:00 PM",
+            "3:00 PM - 4:00 PM"
+          ],
           "appointments": []
         }
       ]

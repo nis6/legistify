@@ -13,9 +13,6 @@ const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
     (state) => state[lawfirmIndex].lawyers[lawyerIndex]
   );
 
-  // console.log("lawyerIndex from lawyercard: ", lawyerIndex);
-  // console.log("lawyerData from lawyercard: ", lawyerData);
-
   function onClose() {
     setToggle(false);
   }
@@ -43,7 +40,7 @@ const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
           >
             Check History
           </Button>
-          {lawyerData.slot_counter !== 0 ? (
+          {lawyerData.slot_counter.length !== 0 ? (
             <Button onClick={() => setToggle(!toggleForm)}>Book Appointment</Button>
           ) : (
             <Button bg="rust" variant="signup">

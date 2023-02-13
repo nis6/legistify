@@ -8,6 +8,7 @@ import {
   Heading,
   Flex,
   Image,
+  Text,
 } from "@chakra-ui/react";
 import {
   FormControl,
@@ -81,12 +82,7 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let index;
-
-    index = lawyerData.appointments.findIndex(
-      (item) => item.name == inputName && item.email == inputMail
-    );
-    console.log("index inside form ", index);
+    let index = lawyerData.appointments.findIndex((item) => item.email == inputMail);
 
     if (
       inputName === "" ||
@@ -104,7 +100,7 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
         lawfirmIndex,
         lawyerIndex,
         new_appointment: {
-          id: lawyerData.id + lawyerData.slot_counter,
+          id: lawyerData.id + inputSlot,
           clientName: inputName,
           email: inputMail,
           date: inputDate,
@@ -123,6 +119,52 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
     setInputDate("");
     setInputSlot("");
     setInputMail("");
+  }
+
+  if (doesExist) {
+    return ReactDOM.createPortal(
+      <Overlay>
+        <Flex
+          direction="column"
+          gap="1rem"
+          align="center"
+          justify="center"
+          width="50vw"
+          p="1rem 4rem"
+          m="1rem"
+          borderRadius="1rem"
+          bg="rust"
+          position="relative"
+        >
+          <CloseButton
+            position="absolute"
+            top="0.5rem"
+            right="0.5rem"
+            p="0"
+            m="0"
+            zIndex="20"
+            onClick={() => {
+              emptyOut();
+              onClose();
+            }}
+          />
+          <Flex>
+            <Image src={svg.lawyer} boxSize="70px" />
+            <Image src={svg.person} boxSize="70px" />
+          </Flex>
+          <Text as="h3" size="md">
+            This email id already exists.
+          </Text>
+          <Heading as="h3" size="md">
+            You already have an appointment with {lawyerData.name} :)
+          </Heading>
+          <Button onClick={() => onClose()} variant="formButton">
+            Okay!
+          </Button>
+        </Flex>
+      </Overlay>,
+      modal
+    );
   }
 
   if (submitClick) {
@@ -240,11 +282,9 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
               value={inputSlot}
               onChange={(e) => setInputSlot(e.target.value)}
             >
-              <option>10:00 AM - 11:00 AM</option>
-              <option>11:00 AM - 12:00 PM</option>
-              <option>1:00 PM - 2:00 PM</option>
-              <option>2:00 PM - 3:00 PM</option>
-              <option>3:00 PM - 4:00 PM</option>
+              {lawyerData.slot_counter.map((item) => (
+                <option key={item}>{item}</option>
+              ))}
             </Select>
 
             <Button type="submit" variant="formButton">
