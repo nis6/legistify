@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Box, Button, Input, Select, CloseButton, Heading } from "@chakra-ui/react";
 import {
   FormControl,
@@ -10,8 +9,8 @@ import {
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import { useSelector, useDispatch, useStore } from "react-redux";
-import { set_appointment } from "./../redux/action";
+import { useSelector, useDispatch } from "react-redux";
+import set_appointment from "./../redux/action";
 
 const Overlay = styled.div`
   display: flex;
@@ -48,7 +47,7 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
   const [inputDate, setInputDate] = useState("");
   const [inputSlot, setInputSlot] = useState("");
   const [inputMail, setInputMail] = useState("");
-  // const [submitClick, setSubmit] = useState(false);
+  const [submitClick, setSubmit] = useState(false);
 
   //state for view management
   const [isError, setError] = useState(false);
@@ -85,7 +84,7 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
 
     dispatch(set_appointment(payload));
     emptyOut();
-    // setSubmit(true);
+    setSubmit(true);
   };
 
   function emptyOut() {
@@ -96,42 +95,37 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
     setInputMail("");
   }
 
-  if (!showModal) {
-    console.log("No form to be shown");
-    return null;
+  if (submitClick) {
+    return ReactDOM.createPortal(
+      <Overlay>
+        <Box
+          border="black solid 1px"
+          width="50vw"
+          p="1rem 4rem"
+          m="1rem"
+          borderRadius="1rem"
+          bg="white"
+          position="relative"
+        >
+          <CloseButton
+            position="absolute"
+            top="0.5rem"
+            right="0.5rem"
+            p="0"
+            m="0"
+            zIndex="20"
+            onClick={() => {
+              emptyOut();
+              onClose();
+            }}
+          />
+          <Heading as="h2">You have an appointment with {lawyerData.name}!</Heading>
+          <Button onClick={() => onClose()}>Okay!</Button>
+        </Box>
+      </Overlay>,
+      modal
+    );
   }
-
-  // if (submitClick) {
-  //   return ReactDOM.createPortal(
-  //     <Overlay>
-  //       <Box
-  //         border="black solid 1px"
-  //         width="50vw"
-  //         p="1rem 4rem"
-  //         m="1rem"
-  //         borderRadius="1rem"
-  //         bg="white"
-  //         position="relative"
-  //       >
-  //         <CloseButton
-  //           position="absolute"
-  //           top="0.5rem"
-  //           right="0.5rem"
-  //           p="0"
-  //           m="0"
-  //           zIndex="20"
-  //           onClick={() => {
-  //             emptyOut();
-  //             onClose();
-  //           }}
-  //         />
-  //         <Heading as="h2">You have an appointment with {lawyerData.name}!</Heading>
-  //         <Button onClick={() => onClose()}>Okay!</Button>
-  //       </Box>
-  //     </Overlay>,
-  //     modal
-  //   );
-  // }
 
   return ReactDOM.createPortal(
     <Overlay>

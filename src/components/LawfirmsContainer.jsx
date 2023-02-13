@@ -5,7 +5,7 @@ import { useStore } from "react-redux";
 const LawfirmsContainer = () => {
   let store = useStore();
   let lawfirms = store.getState();
-  // console.log("lawfirm inside lawfirmscontainer: ", lawfirms);
+  console.log("lawfirm inside lawfirmscontainer: ", lawfirms);
   return (
     <Flex
       id="lawfirmContainerId"

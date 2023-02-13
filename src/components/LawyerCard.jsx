@@ -44,13 +44,15 @@ const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
               Unavailable
             </Button>
           )}
-          <AptForm
-            showModal={toggleForm}
-            onClose={onClose}
-            lawyerIndex={lawyerIndex}
-            lawfirmIndex={lawfirmIndex}
-          />
-
+          {toggleForm ? (
+            <AptForm
+              onClose={onClose}
+              lawyerIndex={lawyerIndex}
+              lawfirmIndex={lawfirmIndex}
+            />
+          ) : (
+            ""
+          )}
           <Flex align="end" pr="1rem" gap="0.8rem">
             <Text size="md" fontWeight="semibold" color="grey200">
               60 min.
