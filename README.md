@@ -8,3 +8,4 @@
 - styled-components
 - reduxjs/toolkit
 - configureStore includes middleware redux-thunk
+- scalable registered firm component, using centralised redux store

@@ -2,19 +2,25 @@ import data from './lawfirm_db.json';
 
 let lawfirms = data.lawfirms;
 
-console.log("This is data inside reducer", data)
+// console.log("This is data inside reducer", data)
+
 const AppointmentReducer = (state = lawfirms, action) => {
-    let newArr = [...lawfirms]
+    let newArr = [...state]
 
     // console.log("checking destructuring : ", newArr[0].lawyers[1].appointments);
 
     if (action.type === 'appointment/add') {
-        newArr[action.payload.firmId].lawyers[action.payload.lawyerId].appointments.push({ action.payload.new_appointment });
-        newArr[action.payload.firmId].lawyers[action.payload.lawyerId].slot_counter--;
+        let aptArr = newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments
+        aptArr.push(action.new_appointment);
+        newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments = aptArr
+        newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].slot_counter--;
         return newArr;
     }
     if (action.type === 'appointment/dlt') {
-        newArr[action.payload.firmId].lawyers[action.payload.lawyerId].appointments = newArr[action.payload.firmId].lawyers[action.payload.lawyerId].appointments.filter(apt => apt.aptId !== action.payload.new_appointment.aptId)
+        let aptArr = newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments
+        aptArr.filter(apt => apt.aptId !== action.payload.unwanted_appointment.aptId)
+        newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments = aptArr;
+        newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].slot_counter++;
         return newArr;
     }
 

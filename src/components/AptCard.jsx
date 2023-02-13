@@ -8,7 +8,7 @@ const AptCard = () => {
       align="center"
       justify="center"
       borderRadius="1.5rem"
-      bg="bg100"
+      bg="bg200"
       h="max-content"
       width="500px"
       m="1rem"
@@ -20,9 +20,9 @@ const AptCard = () => {
         <Text color="black">nishachauhan0950@gmail.com</Text>
       </Flex>
       <Flex align="end" justify="space-between" width="100%" pt="0.5rem">
-        <Flex direction="column">
+        <Flex direction="column" align="start" justify="end">
           <Text fontWeight="semibold">Date: 25-02-2022</Text>
-          <Text as="mail" color="rust" fontWeight="semibold">
+          <Text color="rust" fontWeight="semibold">
             Time: 9:00 AM- 10:00 AM
           </Text>
         </Flex>

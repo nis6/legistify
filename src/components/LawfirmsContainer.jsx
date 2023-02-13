@@ -1,9 +1,14 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, Link } from "@chakra-ui/react";
 import LawfirmCard from "./LawfirmCard";
+import { useStore } from "react-redux";
 
 const LawfirmsContainer = () => {
+  let store = useStore();
+  let lawfirms = store.getState();
+  // console.log("lawfirm inside lawfirmscontainer: ", lawfirms);
   return (
     <Flex
+      id="lawfirmContainerId"
       h="max-content"
       direction="column"
       gap="3rem"
@@ -21,9 +26,13 @@ const LawfirmsContainer = () => {
         Registered Law Firms
       </Heading>
       <Flex wrap="wrap" align="center" justify="center">
-        <LawfirmCard />
-        <LawfirmCard />
-        <LawfirmCard />
+        {lawfirms.map((item) => (
+          <LawfirmCard
+            firm_name={item["firm_name"]}
+            firmId={item["id"]}
+            key={item["id"]}
+          />
+        ))}
       </Flex>
     </Flex>
   );

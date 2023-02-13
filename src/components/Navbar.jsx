@@ -18,9 +18,9 @@ const Navbar = () => {
         <Logo />
       </Box>
       <Flex align="center" justify="space-evenly" gap="3rem">
-        <Link>HOME</Link>
-        <Link>ABOUT US</Link>
-        <Link>CONTACT US</Link>
+        <Link href="#home">HOME</Link>
+        <Link href="#about">ABOUT US</Link>
+        <Link href="#contact">CONTACT US</Link>
         <Link style={{ textDecoration: "none" }}>
           <Button variant="signup">SIGN UP</Button>
         </Link>

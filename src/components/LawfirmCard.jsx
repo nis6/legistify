@@ -1,7 +1,7 @@
 import { Flex, Image, Link } from "@chakra-ui/react";
 import svg from "../assets";
 
-const LawfirmCard = () => {
+const LawfirmCard = ({ firm_name, firmId }) => {
   return (
     <Flex
       direction="column"
@@ -11,9 +11,13 @@ const LawfirmCard = () => {
       borderRadius="9rem"
       m="1rem"
       bg="bg200"
+      width="300px"
+      height="300px"
     >
       <Image src={svg.lawbalance} boxSize="100px" />
-      <Link textAlign="center">Name of the Lawfirm</Link>
+      <Link textAlign="center" href={`#${firmId}`}>
+        {firm_name}
+      </Link>
     </Flex>
   );
 };

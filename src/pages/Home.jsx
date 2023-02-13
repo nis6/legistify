@@ -6,16 +6,26 @@ import LawfirmsContainer from "../components/LawfirmsContainer";
 import LawyersContainer from "../components/LawyersContainer";
 import AptCard from "./../components/AptCard";
 import AptForm from "./../components/AptForm";
-import AppointmentReducer from "../redux/reducer";
+import { useStore } from "react-redux";
 
 const Home = () => {
-  AppointmentReducer();
+  let store = useStore();
+  let lawfirms = store.getState();
   return (
-    <Box bg="bg200" w="100vw">
+    <Box bg="bg200" w="100vw" id="home" align="center">
       <Navbar />
       <HomeCard />
       <LawfirmsContainer />
-      <LawyersContainer />
+      {lawfirms.map((item) => {
+        return (
+          <LawyersContainer
+            firm_name={item["firm_name"]}
+            firmId={item["id"]}
+            key={item["id"]}
+          />
+        );
+      })}
+
       <AptCard />
       <AptForm />
     </Box>

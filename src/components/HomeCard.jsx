@@ -1,4 +1,4 @@
-import { Box, Heading, Flex, Image, Button, Spacer } from "@chakra-ui/react";
+import { Box, Heading, Flex, Image, Button, Link } from "@chakra-ui/react";
 import svg from "../assets";
 import { useMediaQuery } from "@chakra-ui/react";
 
@@ -17,9 +17,12 @@ const HomeCard = () => {
       direction={direction}
     >
       <Box>
-        <Button borderRadius="1rem 1rem 0rem 1rem" size="xl">
-          Find Your Attorney
-        </Button>
+        <Link href="#lawfirmContainerId" style={{ textDecoration: "none" }}>
+          <Button borderRadius="1rem 1rem 0rem 1rem" size="xl">
+            Find Your Attorney
+          </Button>
+        </Link>
+
         <br />
         <br />
         <Heading as="h1" fontWeight="semibold">
@@ -43,7 +46,9 @@ const HomeCard = () => {
           A Management Tool for your Law Firm.
         </Heading>
         <br />
-        <Button size="xl">Register Your Firm</Button>
+        <Link href="#lawfirmContainerId" style={{ textDecoration: "none" }}>
+          <Button size="xl">Register Your Firm</Button>
+        </Link>
       </Box>
     </Flex>
   );
