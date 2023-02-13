@@ -10,6 +10,7 @@ const AppointmentReducer = createReducer(lawfirms, (builder) => {
             console.log('this is action from set_app: ', action)
             // console.log('lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawfirmIndex]', lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawfirmIndex])
             lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawfirmIndex].appointments.push(action.payload.new_appointment)
+            lawfirms[action.payload.lawfirmIndex].lawyers[action.payload.lawfirmIndex].slot_counter--
             console.log('this is lawfirms after reducer: ', current(lawfirms))
 
         }

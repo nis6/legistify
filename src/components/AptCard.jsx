@@ -1,32 +1,33 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Image, Text, Box } from "@chakra-ui/react";
 import svg from "../assets";
 
-const AptCard = () => {
+const AptCard = ({ name, email, date, time }) => {
   return (
     <Flex
-      direction="column"
       align="center"
-      justify="center"
+      justify="space-between"
       borderRadius="1.5rem"
       bg="bg200"
-      h="max-content"
-      width="500px"
+      width="100%"
       m="1rem"
+      border="solid 1px black"
       p="2rem"
     >
-      <Flex direction="column" align="start" justify="center" width="100%">
+      <Flex align="center" justify="center">
         <Image src={svg.person} boxSize="150px" />
-        <Text fontWeight="semibold">Nisha</Text>
-        <Text color="black">nishachauhan0950@gmail.com</Text>
+        <Box textAlign="start">
+          <Text fontWeight="semibold">{name}</Text>
+          <Text color="black">{email}</Text>
+        </Box>
       </Flex>
-      <Flex align="end" justify="space-between" width="100%" pt="0.5rem">
-        <Flex direction="column" align="start" justify="end">
-          <Text fontWeight="semibold">Date: 25-02-2022</Text>
+      <Flex direction="column" align="end" justify="space-between">
+        <Flex direction="column" align="end" justify="end" gap="0.5rem">
+          <Image src={svg.calender} boxSize="50px" />
+          <Text fontWeight="semibold">{date}</Text>
           <Text color="rust" fontWeight="semibold">
-            Time: 9:00 AM- 10:00 AM
+            {time}
           </Text>
         </Flex>
-        <Image src={svg.calender} boxSize="50px" />
       </Flex>
     </Flex>
   );

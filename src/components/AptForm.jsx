@@ -1,16 +1,26 @@
 import React from "react";
-import { Box, Button, Input, Select, CloseButton, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Input,
+  Select,
+  CloseButton,
+  Heading,
+  Flex,
+  Image,
+} from "@chakra-ui/react";
 import {
   FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import set_appointment from "./../redux/action";
+import svg from "../assets";
 
 const Overlay = styled.div`
   display: flex;
@@ -36,6 +46,8 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
   const lawyerData = useSelector(
     (state) => state[lawfirmIndex].lawyers[lawyerIndex]
   );
+
+  const slotOption = useRef();
   // console.log("lawyerdata from inside form", lawyerData);
 
   //to get access to store.dispatch (we have store so no need for it, but for non verbose use)
@@ -51,6 +63,7 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
 
   //state for view management
   const [isError, setError] = useState(false);
+  const [doesExist, setExist] = useState(false);
 
   //To disable past dates
   var dtToday = new Date();
@@ -68,23 +81,40 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("reached handleSubmit");
-    //function call:  to the function sent as a prop inside Search
-    let payload = {
-      lawfirmIndex,
-      lawyerIndex,
-      new_appointment: {
-        id: lawyerData.id + lawyerData.slot_counter,
-        clientName: inputName,
-        email: inputMail,
-        date: inputDate,
-        time: inputSlot,
-      },
-    };
+    let index;
 
-    dispatch(set_appointment(payload));
-    emptyOut();
-    setSubmit(true);
+    index = lawyerData.appointments.findIndex(
+      (item) => item.name == inputName && item.email == inputMail
+    );
+    console.log("index inside form ", index);
+
+    if (
+      inputName === "" ||
+      inputMail === "" ||
+      inputSlot === "" ||
+      inputDate === ""
+    ) {
+      setError(true);
+    } else if (index !== -1) {
+      setExist(true);
+    } else if (lawyerData.appointments.length === 0 || index === -1) {
+      //function call:  to the function sent as a prop inside Search
+      setExist(false);
+      let payload = {
+        lawfirmIndex,
+        lawyerIndex,
+        new_appointment: {
+          id: lawyerData.id + lawyerData.slot_counter,
+          clientName: inputName,
+          email: inputMail,
+          date: inputDate,
+          time: inputSlot,
+        },
+      };
+      dispatch(set_appointment(payload));
+      emptyOut();
+      setSubmit(true);
+    }
   };
 
   function emptyOut() {
@@ -98,13 +128,16 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
   if (submitClick) {
     return ReactDOM.createPortal(
       <Overlay>
-        <Box
-          border="black solid 1px"
+        <Flex
+          direction="column"
+          gap="1rem"
+          align="center"
+          justify="center"
           width="50vw"
           p="1rem 4rem"
           m="1rem"
           borderRadius="1rem"
-          bg="white"
+          bg="hazelyellow"
           position="relative"
         >
           <CloseButton
@@ -119,9 +152,18 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
               onClose();
             }}
           />
-          <Heading as="h2">You have an appointment with {lawyerData.name}!</Heading>
-          <Button onClick={() => onClose()}>Okay!</Button>
-        </Box>
+          <Flex>
+            <Image src={svg.lawyer} boxSize="70px" />
+            <Image src={svg.person} boxSize="70px" />
+          </Flex>
+
+          <Heading as="h3" size="md">
+            You have an appointment with {lawyerData.name}!
+          </Heading>
+          <Button onClick={() => onClose()} variant="formButton">
+            Okay!
+          </Button>
+        </Flex>
       </Overlay>,
       modal
     );
@@ -130,7 +172,6 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
   return ReactDOM.createPortal(
     <Overlay>
       <Box
-        border="black solid 1px"
         width="50vw"
         p="1rem 4rem"
         m="1rem"
@@ -206,7 +247,9 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
               <option>3:00 PM - 4:00 PM</option>
             </Select>
 
-            <Button type="submit">Submit</Button>
+            <Button type="submit" variant="formButton">
+              Submit
+            </Button>
           </FormControl>
         </form>
       </Box>

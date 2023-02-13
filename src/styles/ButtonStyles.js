@@ -50,6 +50,19 @@ export const ButtonStyles = {
             _active: {
                 opacity: '1'
             }
+        },
+        formButton: {
+            borderRadius: '1rem',
+            bg: "black",
+            color: "bg100",
+            _hover: {
+                bg: 'fontblack',
+                textDecoration: 'none',
+                opacity: '0.8'
+            },
+            _active: {
+                bg: "black",
+            }
         }
     },
     // default values for 'size', 'variant' and 'colorScheme'

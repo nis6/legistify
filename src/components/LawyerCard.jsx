@@ -1,11 +1,13 @@
-import { Box, Flex, Image, Link, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Image, Heading, Text, Button } from "@chakra-ui/react";
 import svg from "../assets";
 import { useState } from "react";
 import AptForm from "./AptForm";
 import { useSelector } from "react-redux";
+import HistoryApts from "./HistoryApts";
 
 const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
   const [toggleForm, setToggle] = useState(false);
+  const [toggleHistory, setToggleHistory] = useState(false);
 
   const lawyerData = useSelector(
     (state) => state[lawfirmIndex].lawyers[lawyerIndex]
@@ -34,7 +36,11 @@ const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
           <Text color="rust">{lawyerData.speciality}</Text>
         </Box>
         <Flex direction="column" gap="0.5rem" align="end">
-          <Button size="sm" variant="secondary">
+          <Button
+            size="sm"
+            variant="secondary"
+            onClick={() => setToggleHistory(!toggleHistory)}
+          >
             Check History
           </Button>
           {lawyerData.slot_counter !== 0 ? (
@@ -67,6 +73,11 @@ const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
       <Text align="start" fontSize="md">
         {lawyerData.about}
       </Text>
+      {toggleHistory ? (
+        <HistoryApts lawfirmIndex={lawfirmIndex} lawyerIndex={lawyerIndex} />
+      ) : (
+        ""
+      )}
     </Flex>
   );
 };
