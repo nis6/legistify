@@ -1,31 +1,76 @@
 import data from './lawfirm_db.json';
-
 let lawfirms = data.lawfirms;
-
 // console.log("This is data inside reducer", data)
-
 const AppointmentReducer = (state = lawfirms, action) => {
-    let newArr = [...state]
-
-    // console.log("checking destructuring : ", newArr[0].lawyers[1].appointments);
-
     if (action.type === 'appointment/add') {
-        let aptArr = newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments
-        aptArr.push(action.new_appointment);
-        newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments = aptArr
-        newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].slot_counter--;
-        return newArr;
+
+        return [
+            ...state,
+
+            state[action.payload.lawfirmIndex] = {
+
+                ...state[action.payload.lawfirmIndex],
+
+                state[action.payload.lawfirmIndex].lawyers : [
+
+                            ...state[action.payload.lawfirmIndex].lawyers,
+
+                state[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex] = {
+
+                    ...state[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex],
+
+                    state[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments: [
+                                ...state[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments,
+                    action.payload.new_appointment
+                                    ]
+
     }
-    if (action.type === 'appointment/dlt') {
-        let aptArr = newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments
-        aptArr.filter(apt => apt.aptId !== action.payload.unwanted_appointment.aptId)
-        newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments = aptArr;
-        newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].slot_counter++;
-        return newArr;
+                            ] 
+
+
+                        }
+        ]
     }
 
-    return state;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const AppointmentReducer = (state = lawfirms, action) => {
+//     const newArr = [...state]
+
+//     if (action.type === 'appointment/add') {
+//         console.log("checking destructuring newArr: ", newArr);
+//         let aptArr = newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments
+//         aptArr.push(action.new_appointment);
+//         newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments = aptArr
+//         newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].slot_counter--;
+//         return [
+//             ...state,
+//             newArr
+//         ];
+//     }
+//     if (action.type === 'appointment/dlt') {
+//         let aptArr = newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments
+//         aptArr.filter(apt => apt.aptId !== action.payload.unwanted_appointment.aptId)
+//         newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments = aptArr;
+//         newArr[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].slot_counter++;
+//         return newArr;
+//     }
+
+//     return state;
+// }
 
 export default AppointmentReducer;
 

@@ -5,12 +5,12 @@ import HomeCard from "../components/HomeCard";
 import LawfirmsContainer from "../components/LawfirmsContainer";
 import LawyersContainer from "../components/LawyersContainer";
 import AptCard from "./../components/AptCard";
-import AptForm from "./../components/AptForm";
 import { useStore } from "react-redux";
 
 const Home = () => {
   let store = useStore();
   let lawfirms = store.getState();
+
   return (
     <Box bg="bg200" w="100vw" id="home" align="center">
       <Navbar />
@@ -27,7 +27,6 @@ const Home = () => {
       })}
 
       <AptCard />
-      <AptForm />
     </Box>
   );
 };

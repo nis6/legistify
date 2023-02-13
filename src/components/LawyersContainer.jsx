@@ -6,7 +6,7 @@ const LawyersContainer = ({ firm_name, firmId }) => {
   let lawfirms = useSelector((state) => state);
   let lawfirmIndex = lawfirms.findIndex((item) => item.id === firmId);
 
-  console.log("lawyersContainer Number: ", lawfirmIndex);
+  // console.log("lawyersContainer Number: ", lawfirmIndex);
   return (
     <Flex
       h="max-content"
@@ -27,17 +27,11 @@ const LawyersContainer = ({ firm_name, firmId }) => {
         {firm_name}
       </Heading>
       <Flex direction="column" gap="2rem">
-        {lawfirms[lawfirmIndex].lawyers.map((item) => {
+        {lawfirms[lawfirmIndex].lawyers.map((item, index) => {
           return (
             <LawyerCard
               key={item["id"]}
-              id={item["id"]}
-              name={item["name"]}
-              speciality={item["speciality"]}
-              about={item["about"]}
-              price={item["price"]}
-              slot_counter={item["slot_counter"]}
-              appointments={item["appointments"]}
+              lawyerIndex={index}
               lawfirmIndex={lawfirmIndex}
             />
           );
@@ -46,5 +40,13 @@ const LawyersContainer = ({ firm_name, firmId }) => {
     </Flex>
   );
 };
+
+//  id={item["id"]}
+//             name={item["name"]}
+//             speciality={item["speciality"]}
+//             about={item["about"]}
+//             price={item["price"]}
+//             slot_counter={item["slot_counter"]}
+//             appointments={item["appointments"]}
 
 export default LawyersContainer;

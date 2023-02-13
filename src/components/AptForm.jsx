@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Button, Input, Select, CloseButton } from "@chakra-ui/react";
+import { Box, Button, Input, Select, CloseButton, Heading } from "@chakra-ui/react";
 import {
   FormControl,
   FormLabel,
@@ -26,22 +26,17 @@ const Overlay = styled.div`
 `;
 const modal = document.getElementById("modal");
 
-const AptForm = ({ showModal, onClose, lawyerId, lawfirmIndex }) => {
-  const store = useStore();
-  let lawfirms = store.getState();
+const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
+  // const store = useStore();
+  // let lawfirms = store.getState();
 
-  console.log("This is lawfirmIndex in AptForm: ", lawfirmIndex);
-  console.log("This is lawfirms in AptForm: ", lawfirms[lawfirmIndex]);
-
-  let lawyerIndex = lawfirms[lawfirmIndex].lawyers.findIndex(
-    (item) => item.id === lawyerId
-  );
-
-  // console.log("lawfirmIndex Aptform: ", lawfirmIndex);
-  // console.log("lawyers Aptform: ", lawfirms[lawfirmIndex].lawyers);
+  // console.log("This is lawfirmIndex in AptForm: ", lawfirmIndex);
+  // console.log("This is lawfirms in AptForm: ", lawfirms[lawfirmIndex]);
 
   //to obtain and subscribe to any change in selected lawyers' data
-  const lawyerData = useSelector((state) => state[lawfirmIndex][lawyerIndex]);
+  const lawyerData = useSelector(
+    (state) => state[lawfirmIndex].lawyers[lawyerIndex]
+  );
   // console.log("lawyerdata from inside form", lawyerData);
 
   //to get access to store.dispatch (we have store so no need for it, but for non verbose use)
@@ -51,8 +46,9 @@ const AptForm = ({ showModal, onClose, lawyerId, lawfirmIndex }) => {
   //state for input fields
   const [inputName, setInputName] = useState("");
   const [inputDate, setInputDate] = useState("");
-  const [inputTime, setInputTime] = useState("");
-  const [inputMail, setMail] = useState("");
+  const [inputSlot, setInputSlot] = useState("");
+  const [inputMail, setInputMail] = useState("");
+  // const [submitClick, setSubmit] = useState(false);
 
   //state for view management
   const [isError, setError] = useState(false);
@@ -73,35 +69,69 @@ const AptForm = ({ showModal, onClose, lawyerId, lawfirmIndex }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log("reached handleSubmit");
     //function call:  to the function sent as a prop inside Search
     let payload = {
       lawfirmIndex,
       lawyerIndex,
       new_appointment: {
-        id: lawyerId + lawyerData.slot_counter,
+        id: lawyerData.id + lawyerData.slot_counter,
         clientName: inputName,
         email: inputMail,
         date: inputDate,
-        time: inputTime,
+        time: inputSlot,
       },
     };
 
     dispatch(set_appointment(payload));
     emptyOut();
+    // setSubmit(true);
   };
 
   function emptyOut() {
     //Empty out the input fields after submission
     setInputName("");
     setInputDate("");
-    setInputTime("");
-    setMail("");
+    setInputSlot("");
+    setInputMail("");
   }
 
   if (!showModal) {
     console.log("No form to be shown");
     return null;
   }
+
+  // if (submitClick) {
+  //   return ReactDOM.createPortal(
+  //     <Overlay>
+  //       <Box
+  //         border="black solid 1px"
+  //         width="50vw"
+  //         p="1rem 4rem"
+  //         m="1rem"
+  //         borderRadius="1rem"
+  //         bg="white"
+  //         position="relative"
+  //       >
+  //         <CloseButton
+  //           position="absolute"
+  //           top="0.5rem"
+  //           right="0.5rem"
+  //           p="0"
+  //           m="0"
+  //           zIndex="20"
+  //           onClick={() => {
+  //             emptyOut();
+  //             onClose();
+  //           }}
+  //         />
+  //         <Heading as="h2">You have an appointment with {lawyerData.name}!</Heading>
+  //         <Button onClick={() => onClose()}>Okay!</Button>
+  //       </Box>
+  //     </Overlay>,
+  //     modal
+  //   );
+  // }
 
   return ReactDOM.createPortal(
     <Overlay>
@@ -154,8 +184,8 @@ const AptForm = ({ showModal, onClose, lawyerId, lawfirmIndex }) => {
               type="email"
               name="Email"
               placeholder="Your Email Id"
-              value={inputName}
-              onChange={(e) => setInputName(e.target.value)}
+              value={inputMail}
+              onChange={(e) => setInputMail(e.target.value)}
               width="70%"
             />
             <Input
@@ -168,7 +198,13 @@ const AptForm = ({ showModal, onClose, lawyerId, lawfirmIndex }) => {
               width="70%"
             />
 
-            <Select variant="outline" placeholder="Select a Slot" width="70%">
+            <Select
+              variant="outline"
+              placeholder="Select a Slot"
+              width="70%"
+              value={inputSlot}
+              onChange={(e) => setInputSlot(e.target.value)}
+            >
               <option>10:00 AM - 11:00 AM</option>
               <option>11:00 AM - 12:00 PM</option>
               <option>1:00 PM - 2:00 PM</option>
