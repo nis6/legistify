@@ -1,9 +1,9 @@
 import { Box, Flex, Image, Heading, Text, Button } from "@chakra-ui/react";
-import svg from "../assets";
+import svg from "../../assets";
 import { useState } from "react";
-import AptForm from "./AptForm";
 import { useSelector } from "react-redux";
-import HistoryApts from "./HistoryApts";
+import HistoryApts from "../HistoryApts";
+import ProfileButtons from "./ProfileButtons";
 
 const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
   const [toggleForm, setToggle] = useState(false);
@@ -15,6 +15,12 @@ const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
 
   function onClose() {
     setToggle(false);
+  }
+  function onToggleForm() {
+    setToggle(!toggleForm);
+  }
+  function onToggleHistory() {
+    setToggleHistory(!toggleHistory);
   }
 
   return (
@@ -32,40 +38,15 @@ const LawyerCard = ({ lawyerIndex, lawfirmIndex }) => {
           <Text fontWeight="semibold">{lawyerData.name}</Text>
           <Text color="rust">{lawyerData.speciality}</Text>
         </Box>
-        <Flex direction="column" gap="0.5rem" align="end">
-          <Button
-            size="sm"
-            variant="secondary"
-            onClick={() => setToggleHistory(!toggleHistory)}
-          >
-            Check History
-          </Button>
-          {lawyerData.slot_counter.length !== 0 ? (
-            <Button onClick={() => setToggle(!toggleForm)}>Book Appointment</Button>
-          ) : (
-            <Button bg="rust" variant="signup">
-              Unavailable
-            </Button>
-          )}
-          {toggleForm ? (
-            <AptForm
-              onClose={onClose}
-              lawyerIndex={lawyerIndex}
-              lawfirmIndex={lawfirmIndex}
-            />
-          ) : (
-            ""
-          )}
-          <Flex align="end" pr="1rem" gap="0.8rem">
-            <Text size="md" fontWeight="semibold" color="grey200">
-              60 min.
-            </Text>
-            <Image src={svg.hourglass} boxSize="50px" />
-            <Text size="md" fontWeight="semibold">
-              ₹{lawyerData.price}/
-            </Text>
-          </Flex>
-        </Flex>
+        <ProfileButtons
+          onClose={onClose}
+          onToggleForm={onToggleForm}
+          onToggleHistory={onToggleHistory}
+          lawfirmIndex={lawfirmIndex}
+          lawyerData={lawyerData}
+          lawyerIndex={lawyerIndex}
+          toggleForm={toggleForm}
+        />
       </Flex>
       <Text align="start" fontSize="md">
         {lawyerData.about}

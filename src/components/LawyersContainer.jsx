@@ -1,5 +1,5 @@
 import { Flex, Heading } from "@chakra-ui/react";
-import LawyerCard from "./LawyerCard";
+import LawyerCard from "./LawyerProfile/LawyerCard";
 import { useSelector } from "react-redux";
 
 const LawyersContainer = ({ firm_name, firmId }) => {
@@ -40,13 +40,5 @@ const LawyersContainer = ({ firm_name, firmId }) => {
     </Flex>
   );
 };
-
-//  id={item["id"]}
-//             name={item["name"]}
-//             speciality={item["speciality"]}
-//             about={item["about"]}
-//             price={item["price"]}
-//             slot_counter={item["slot_counter"]}
-//             appointments={item["appointments"]}
 
 export default LawyersContainer;

@@ -6,6 +6,7 @@ const HistoryApts = ({ lawfirmIndex, lawyerIndex }) => {
   const appointmentsArray = useSelector(
     (state) => state[lawfirmIndex].lawyers[lawyerIndex].appointments
   );
+
   if (appointmentsArray.length !== 0) {
     return (
       <Flex
