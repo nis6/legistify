@@ -2,25 +2,29 @@ import data from './lawfirm_db.json';
 let lawfirms = data.lawfirms;
 // console.log("This is data inside reducer", data)
 const AppointmentReducer = (state = lawfirms, action) => {
+
+    let id1 = action.payload.lawfirmIndex;
+    let id2 = action.payload.lawyerIndex
+
     if (action.type === 'appointment/add') {
 
         return [
             ...state,
 
-            state[action.payload.lawfirmIndex] = {
+            state[id1] = {
 
-                ...state[action.payload.lawfirmIndex],
+                ...state[id1],
 
-                state[action.payload.lawfirmIndex].lawyers : [
+                state[id1].lawyers : [
 
-                            ...state[action.payload.lawfirmIndex].lawyers,
+                            ...state[id1].lawyers,
 
-                state[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex] = {
+                state[id1].lawyers[id2] = {
 
-                    ...state[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex],
+                    ...state[id1].lawyers[id2],
 
-                    state[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments: [
-                                ...state[action.payload.lawfirmIndex].lawyers[action.payload.lawyerIndex].appointments,
+                    state[id1].lawyers[id2].appointments: [
+                                ...state[id1].lawyers[id2].appointments,
                     action.payload.new_appointment
                                     ]
 
