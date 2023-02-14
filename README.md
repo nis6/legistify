@@ -1,5 +1,11 @@
 # Legistify Appointment Management Web App
 
+#### Requirements
+
+1. Book an Appointment With a lawyer.
+2. If the number of bookings goes beyond lawyer availability show “Appointments not available”
+3. Given a lawyer, see complete appointment history
+
 ## Main Functionalities
 
 - Lawfirms can register themselves and present their lawyers and services. [Future Scope]
