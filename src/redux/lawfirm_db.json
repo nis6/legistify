@@ -11,13 +11,27 @@
           "about": "After pursuing law from the Government Law College in Mumbai, Soli Sorabjee was admitted to the bar in 1953. At his law school, Sorabjee was awarded the Kinloch Forbes Gold Medal in Roman Law and Jurisprudence.",
           "price": "70,000",
           "slot_counter": [
-            "10:00 AM - 11:00 AM",
-            "11:00 AM - 12:00 PM",
             "1:00 PM - 2:00 PM",
             "2:00 PM - 3:00 PM",
             "3:00 PM - 4:00 PM"
           ],
-          "appointments": []
+          "appointments": [
+            {
+              "id": "ss10111:00 AM - 12:00 PM",
+              "clientName": "Nisha",
+              "email": "nishachauhan0950@gmail.com",
+              "date": "2023-02-14",
+              "time": "11:00 AM - 12:00 PM"
+            },
+
+            {
+              "id": "ss10110:00 AM - 11:00 AM",
+              "clientName": "Nisha Chauhan",
+              "email": "nishachauhan.workmail@gmail.com",
+              "date": "2023-02-14",
+              "time": "10:00 AM - 11:00 AM"
+            }
+          ]
         },
         {
           "id": "fsn102",

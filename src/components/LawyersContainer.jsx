@@ -12,7 +12,7 @@ const LawyersContainer = ({ firm_name, firmId }) => {
       h="max-content"
       direction="column"
       bg="bg100"
-      gap="3rem"
+      gap="5rem"
       align="center"
       justify="center"
       borderRadius="1rem"

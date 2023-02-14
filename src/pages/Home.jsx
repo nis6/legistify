@@ -12,7 +12,7 @@ const Home = () => {
   let lawfirms = store.getState();
 
   return (
-    <Box bg="bg200" w="100vw" id="home" align="center">
+    <Box bg="bg200" w="100vw" id="home" align="center" mb="6rem">
       <Navbar />
       <HomeCard />
       <LawfirmsContainer />

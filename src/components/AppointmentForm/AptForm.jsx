@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Input, Select, CloseButton } from "@chakra-ui/react";
+import { Box, Button, Input, Select, CloseButton, Text } from "@chakra-ui/react";
 import {
   FormControl,
   FormLabel,
@@ -28,17 +28,17 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
 
   //state for input fields
   const [inputName, setInputName] = useState("");
-  const [inputDate, setInputDate] = useState("");
   const [inputSlot, setInputSlot] = useState("");
   const [inputMail, setInputMail] = useState("");
   const [submitClick, setSubmit] = useState(false);
+  // const [inputDate, setInputDate] = useState("");
 
   //state for view management
   const [isError, setError] = useState(false);
   const [doesExist, setExist] = useState(false);
 
   //To disable past dates
-  let maxDate = disablePastDates();
+  let TodaysDate = disablePastDates();
 
   useEffect(() => {
     if (inputName !== "") setError(false);
@@ -46,21 +46,16 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
 
   function emptyOut() {
     setInputName("");
-    setInputDate("");
     setInputSlot("");
     setInputMail("");
+    // setInputDate("");
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let index = lawyerData.appointments.findIndex((item) => item.email == inputMail);
 
-    if (
-      inputName === "" ||
-      inputMail === "" ||
-      inputSlot === "" ||
-      inputDate === ""
-    ) {
+    if (inputName === "" || inputMail === "" || inputSlot === "") {
       setError(true);
     } else if (index !== -1) {
       setExist(true);
@@ -73,7 +68,7 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
           id: lawyerData.id + inputSlot,
           clientName: inputName,
           email: inputMail,
-          date: inputDate,
+          date: TodaysDate,
           time: inputSlot,
         },
       };
@@ -138,12 +133,9 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
             gap="0.5rem"
           >
             <FormLabel>Appointment Form</FormLabel>
-            {!isError ? (
-              <FormHelperText>Your is information safe with us.</FormHelperText>
-            ) : (
-              <FormErrorMessage>Please enter all details.</FormErrorMessage>
-            )}
-
+            <Text textAlign="center">
+              Please enter your details, and select out of available slots for Today.
+            </Text>
             <Input
               type="text"
               name="Name"
@@ -160,7 +152,7 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
               onChange={(e) => setInputMail(e.target.value)}
               width="70%"
             />
-            <Input
+            {/* <Input
               type="date"
               name="Date"
               placeholder="Pick a Date"
@@ -168,7 +160,7 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
               min={maxDate}
               onChange={(e) => setInputDate(e.target.value)}
               width="70%"
-            />
+            /> */}
 
             <Select
               variant="outline"
@@ -181,7 +173,11 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
                 <option key={item}>{item}</option>
               ))}
             </Select>
-
+            {!isError ? (
+              <FormHelperText>Your is information safe with us.</FormHelperText>
+            ) : (
+              <FormErrorMessage>Please enter all details.</FormErrorMessage>
+            )}
             <Button type="submit" variant="formButton">
               Submit
             </Button>
