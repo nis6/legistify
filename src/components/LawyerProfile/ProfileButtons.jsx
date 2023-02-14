@@ -14,13 +14,13 @@ const ProfileButtons = ({
   return (
     <Flex direction="column" gap="0.5rem" align="end">
       <Button size="sm" variant="secondary" onClick={() => onToggleHistory()}>
-        Check History
+        Appointment History
       </Button>
       {lawyerData.slot_counter.length !== 0 ? (
         <Button onClick={() => onToggleForm()}>Book Appointment</Button>
       ) : (
         <Button bg="rust" variant="signup">
-          Unavailable
+          Appointments not available
         </Button>
       )}
       {toggleForm ? (

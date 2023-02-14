@@ -33,7 +33,7 @@ Each lawyer of each lawfirm has their profile with details like name, speciality
 
 ### History
 
-This is a scalable component, with access to central redux store, it shows all of the booked slots for a particular lawyer on toggling the Check History button. For demo, I have added a few appointments with "Soli Sobrajee" of "Trilegal India", in the data file.
+This is a scalable component, with access to central redux store, it shows all of the booked slots for a particular lawyer on toggling the Appointment History button. For demo, I have added a few appointments with "Soli Sobrajee" of "Trilegal India", in the data file.
 
 ---
 
@@ -53,11 +53,11 @@ This button opens up an Appointment Form as a Modal on a particular lawyers prof
 
 image comes here
 
-When all slots are booked and there's none available, this button turns rust color and says unavailable.
+When all slots are booked and there's none available, this button turns rust color and says "Appointments not available".
 
 image comes here
 
-#### Check-History Button
+#### Appointment History Button
 
 This button opens and closes the list of all booked appointment slots for the selected lawyer.
 

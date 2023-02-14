@@ -8,6 +8,7 @@ const AptCard = ({ name, email, date, time }) => {
       justify="space-between"
       borderRadius="1.5rem"
       bg="bg200"
+      height="200px"
       width="100%"
       m="1rem"
       border="solid 1px black"
