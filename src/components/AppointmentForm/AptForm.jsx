@@ -53,7 +53,9 @@ const AptForm = ({ showModal, onClose, lawyerIndex, lawfirmIndex }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let index = lawyerData.appointments.findIndex((item) => item.email == inputMail);
+    let index = lawyerData.appointments.findIndex(
+      (item) => item.email === inputMail
+    );
 
     if (inputName === "" || inputMail === "" || inputSlot === "") {
       setError(true);

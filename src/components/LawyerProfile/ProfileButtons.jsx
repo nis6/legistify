@@ -16,6 +16,7 @@ const ProfileButtons = ({
       <Button size="sm" variant="secondary" onClick={() => onToggleHistory()}>
         Appointment History
       </Button>
+
       {lawyerData.slot_counter.length !== 0 ? (
         <Button onClick={() => onToggleForm()}>Book Appointment</Button>
       ) : (
@@ -23,6 +24,7 @@ const ProfileButtons = ({
           Appointments not available
         </Button>
       )}
+
       {toggleForm ? (
         <AptForm
           onClose={onClose}
