@@ -1,7 +1,7 @@
 {
   "name": "legistify",
   "version": "0.1.0",
-  "homepage": "/home",
+  "homepage": "/",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.4.9",

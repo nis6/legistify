@@ -18,7 +18,7 @@ const Navbar = () => {
         <Logo />
       </Box>
       <Flex align="center" justify="space-evenly" gap="3rem">
-        <Link href="#home">HOME</Link>
+        <Link href="#">HOME</Link>
         <Link href="#about">ABOUT US</Link>
         <Link href="#contact">CONTACT US</Link>
         <Link style={{ textDecoration: "none" }}>
